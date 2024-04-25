@@ -1,0 +1,13 @@
+.glossary-tooltip-description {
+  background-color: #0d7978;
+  color: #fdfdfe;
+  text-align: center;
+  border-radius: 6px;
+  width: 200px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+}
+.read-more {
+  color: #fdfdfe;
+}

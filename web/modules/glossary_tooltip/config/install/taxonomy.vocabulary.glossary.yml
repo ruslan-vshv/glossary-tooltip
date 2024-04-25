@@ -1,0 +1,8 @@
+uuid: dd1f82f4-2f31-4f84-a2ba-f097771882db
+langcode: en
+status: true
+dependencies: {  }
+name: Glossary
+vid: glossary
+description: 'Glossary terms'
+weight: 0

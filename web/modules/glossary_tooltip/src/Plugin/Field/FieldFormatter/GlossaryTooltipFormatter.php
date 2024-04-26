@@ -92,12 +92,14 @@ class GlossaryTooltipFormatter extends FormatterBase {
       // Generate tooltip markup.
       $tooltip_link = '<a class="glossary-tooltip-link">' . $glossary_term->getName() . '</a>';
 
+      // Check if tooltip description exceeds 100 characters to add Read more button.
       $tooltip_description_text = $glossary_term->get('field_description')->value;
       if (strlen($tooltip_description_text) > $max_tooltip_description_length) {
         $glossary_term_link = Url::fromRoute('entity.taxonomy_term.canonical', ['taxonomy_term' => $glossary_term->id()])->toString();
         $tooltip_description_text = substr($tooltip_description_text,0,$max_tooltip_description_length) .
           '... <a class="read-more" target="_blank" href="' . $glossary_term_link . '">' . $this->t('Read more') . '</a>';
       }
+
       $tooltip_description = '<span class="glossary-tooltip-description hidden">' . $tooltip_description_text . '</span>';
       $glossary_terms_array['glossary_terms_elements'][] = $tooltip_link . $tooltip_description;
     }
@@ -115,8 +117,9 @@ class GlossaryTooltipFormatter extends FormatterBase {
 
     foreach ($items as $delta => $item) {
       $text = $item->value;
-      $processed_text = str_replace($glossary_terms['glossary_terms'], $glossary_terms['glossary_terms_elements'], $text);
 
+      // Replace all matches in text with tooltip markup.
+      $processed_text = str_replace($glossary_terms['glossary_terms'], $glossary_terms['glossary_terms_elements'], $text);
       $elements[$delta] = [
         '#type' => 'processed_text',
         '#text' => $processed_text,

@@ -1,3 +1,11 @@
+# Glossary Tooltip logic description
+
+Glossary Tooltip logic implemented in "Glossary Tooltip" module via "Glossary Tooltip" Field Formatter. Applying this
+field formatter to any text field will scan its content and replace all words that match with any of Glossary
+vocabulary terms.
+
+In this project setup Body field of Article CT is configured to work with tooltips.
+
 # Docksal powered Drupal 9 With Composer Installation
 
 This is a sample Drupal 9 with Composer installation pre-configured for use with Docksal.
